@@ -28,16 +28,16 @@ public class CustomerController {
 	private static Logger logger = LogManager.getLogger(CustomerDetailsModel.class);
 
 	@Autowired
-	MenuItemsRepository menrep;
+	MenuItemsRepository menuitemsRepository;
 
 	@Autowired
-	CustomerInterface cusrep;
+	CustomerInterface customerInterface;
 
 	@Autowired
 	ModelMapper modelMapper;
 	
 	@Autowired
-	CustomerDetailsRepository cusrep1;
+	CustomerDetailsRepository customerDetailsRepository;
 
 //	@PostMapping("/addCustomer")
 //	public String addCustomer(@RequestBody CustomerDetailsDto details )
@@ -51,14 +51,14 @@ public class CustomerController {
 	public String addCustomer(@RequestBody CustomerDetailsModel details) {
 		
 		
-		cusrep.addCustomer(details);
+		customerInterface.addCustomer(details);
 		return "customer added";
 	}
 
 	@PutMapping("/updateCustomer")
 	public String updateCustomer(@RequestBody CustomerDetailsDto details) {
 		CustomerDetailsModel customerEntity = modelMapper.map(details, CustomerDetailsModel.class);
-		cusrep.addCustomer(customerEntity);
+		customerInterface.addCustomer(customerEntity);
 		
 		return "customer details updated";
 	}
@@ -66,7 +66,7 @@ public class CustomerController {
 	@GetMapping("/findAll")
 	public List<CustomerDetailsModel> findall()
 	{
-		return cusrep1.findAll();
+		return customerDetailsRepository.findAll();
 	}
 
 //	@PostMapping("/addCustomerChecked")
