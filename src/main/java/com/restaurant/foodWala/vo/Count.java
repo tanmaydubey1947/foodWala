@@ -1,4 +1,4 @@
-package com.restaurant.foodWala.model;
+package com.restaurant.foodWala.vo;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;

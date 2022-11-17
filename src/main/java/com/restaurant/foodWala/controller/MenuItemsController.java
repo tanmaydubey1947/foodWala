@@ -1,10 +1,8 @@
 package com.restaurant.foodWala.controller;
 
-import java.lang.reflect.Type;
 import java.util.List;
 
 import org.modelmapper.ModelMapper;
-import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,9 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.restaurant.foodWala.dao.MenuItemsDto;
-import com.restaurant.foodWala.model.MenuItemsModel;
 import com.restaurant.foodWala.service.MenuItemsInterface;
+import com.restaurant.foodWala.vo.MenuItemsModel;
 
 @RestController
 @RequestMapping("/res")
@@ -33,16 +30,9 @@ public class MenuItemsController {
 	}
 
 	@PostMapping("/addAll")
-	public String addItemsControllerAll(@RequestBody List<MenuItemsDto> data) {
+	public String addItemsControllerAll(@RequestBody List<MenuItemsModel> data) {
 
-		// List<Restaurant> restEntity = (List<Restaurant>) modelMapper.map(data,
-		// Restaurant.class);
-
-		Type listType = new TypeToken<List<MenuItemsModel>>() {
-		}.getType();
-		List<MenuItemsModel> menuEntity = modelMapper.map(data, listType);
-
-		menrep.addAllFoodItems(menuEntity);
+		menrep.addAllFoodItems(data);
 
 		return "added";
 	}

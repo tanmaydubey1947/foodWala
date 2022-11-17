@@ -1,4 +1,4 @@
-package com.restaurant.foodWala.model;
+package com.restaurant.foodWala.vo;
 
 import java.io.Serializable;
 import java.util.Objects;

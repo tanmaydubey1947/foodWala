@@ -1,4 +1,4 @@
-package com.restaurant.foodWala.model;
+package com.restaurant.foodWala.vo;
 
 import java.util.ArrayList;
 import java.util.Collection;

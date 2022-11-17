@@ -7,8 +7,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
-import com.restaurant.foodWala.model.MenuItemsModel;
 import com.restaurant.foodWala.repository.MenuItemsRepository;
+import com.restaurant.foodWala.vo.MenuItemsModel;
 
 @Service
 public class MenuItemsImpl implements MenuItemsInterface {

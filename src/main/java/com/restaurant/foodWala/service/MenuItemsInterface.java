@@ -2,7 +2,7 @@ package com.restaurant.foodWala.service;
 
 import java.util.List;
 
-import com.restaurant.foodWala.model.MenuItemsModel;
+import com.restaurant.foodWala.vo.MenuItemsModel;
 
 public interface MenuItemsInterface {
 	

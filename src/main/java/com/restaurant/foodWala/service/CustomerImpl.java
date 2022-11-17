@@ -5,11 +5,11 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.restaurant.foodWala.model.Count;
-import com.restaurant.foodWala.model.CustomerDetailsModel;
-import com.restaurant.foodWala.model.MenuItemsModel;
 import com.restaurant.foodWala.repository.CustomerDetailsRepository;
 import com.restaurant.foodWala.repository.MenuItemsRepository;
+import com.restaurant.foodWala.vo.Count;
+import com.restaurant.foodWala.vo.CustomerDetailsModel;
+import com.restaurant.foodWala.vo.MenuItemsModel;
 
 @Service
 public class CustomerImpl implements CustomerInterface {

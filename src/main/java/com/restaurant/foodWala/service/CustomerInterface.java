@@ -1,7 +1,7 @@
 package com.restaurant.foodWala.service;
 
 
-import com.restaurant.foodWala.model.CustomerDetailsModel;
+import com.restaurant.foodWala.vo.CustomerDetailsModel;
 
 public interface CustomerInterface {
 	

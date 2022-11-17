@@ -1,4 +1,4 @@
-package com.restaurant.foodWala.model;
+package com.restaurant.foodWala.vo;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -17,25 +17,24 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Table
 public class MenuItemsModel {
-	
+
 	@Id
 	@Column
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public int foodId;
-	
-	
+
 	@Column
 	public String foodName;
-	
+
 	@Column
 	public int foodPrice;
-	
+
 //	@ManyToMany(mappedBy="customerToMenuMapping",cascade = {CascadeType.ALL})
 //	public List<CustomerDetailsModel> menuToCustomerMapping;
-	
+
 	@OneToMany(mappedBy = "menuItems", cascade = CascadeType.ALL)
-	 @JsonIgnore
-    public Collection<Count> count = new ArrayList<>();
+	@JsonIgnore
+	public Collection<Count> count = new ArrayList<>();
 
 	public MenuItemsModel(int foodId, String foodName, int foodPrice, Collection<Count> count) {
 		super();
@@ -82,7 +81,4 @@ public class MenuItemsModel {
 		this.count = count;
 	}
 
-	
-
-	
 }
