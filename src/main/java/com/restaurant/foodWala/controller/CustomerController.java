@@ -50,7 +50,7 @@ public class CustomerController {
 	public String updateCustomer(@RequestBody CustomerDetailsDto details) {
 
 		CustomerDetailsModel customerEntity = modelMapper.map(details, CustomerDetailsModel.class);
-		customerInterface.addCustomer(customerEntity);
+		customerInterface.updateCustomer(customerEntity);
 
 		return "customer details updated";
 	}
