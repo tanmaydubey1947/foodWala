@@ -39,73 +39,27 @@ public class CustomerController {
 	@Autowired
 	CustomerDetailsRepository customerDetailsRepository;
 
-//	@PostMapping("/addCustomer")
-//	public String addCustomer(@RequestBody CustomerDetailsDto details )
-//	{
-//		CustomerDetailsModel customerEntity = modelMapper.map(details, CustomerDetailsModel.class);
-//		cusrep.addCustomer(customerEntity);
-//		return "customer added";
-//	}
-
 	@PostMapping("/addCustomer")
 	public String addCustomer(@RequestBody CustomerDetailsModel details) {
-		
 		
 		customerInterface.addCustomer(details);
 		return "customer added";
 	}
+	
 
 	@PutMapping("/updateCustomer")
 	public String updateCustomer(@RequestBody CustomerDetailsDto details) {
+
 		CustomerDetailsModel customerEntity = modelMapper.map(details, CustomerDetailsModel.class);
 		customerInterface.addCustomer(customerEntity);
 		
 		return "customer details updated";
 	}
 	
-	@GetMapping("/findAll")
+	@GetMapping("/getAllCustomers")
 	public List<CustomerDetailsModel> findall()
 	{
 		return customerDetailsRepository.findAll();
 	}
-
-//	@PostMapping("/addCustomerChecked")
-//	public String addCustomerChecked(@RequestBody CustomerDetailsModel details) {
-//		List<MenuItemsModel> validate = new ArrayList<MenuItemsModel>();
-//		validate = menrep.findAll();
-//		int count=0;
-//		 List<Integer> serial = new ArrayList<Integer>();
-//		
-//		for(int i=0;i<validate.size();i++)
-//		{
-//			for(int j=0;j<details.customerToMenuMapping.size();j++)
-//			{
-//				if(validate.get(i).getFoodName().equals(details.customerToMenuMapping.get(j).getFoodName()))
-//				{
-//					count++;
-//					serial.add(i);
-//				}
-//			}
-//		}
-//		
-//		if(count!=details.getCustomerToMenuMapping().size())
-//		{
-//			return "please check menu again";
-//		}
-//			
-//		else
-//		{
-//			details.customerToMenuMapping.clear();
-//			for(int i=0;i<serial.size();i++)
-//			{
-//				int temp = serial.get(i);
-//				details.customerToMenuMapping.add(validate.get(temp));
-//			}
-//			cusrep.addCustomer(details);
-//			return "items added";
-//		}
-//		
-//		
-//	}
 
 }
