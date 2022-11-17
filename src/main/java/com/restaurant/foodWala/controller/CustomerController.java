@@ -24,7 +24,7 @@ import com.restaurant.foodWala.service.CustomerInterface;
 @RestController
 @RequestMapping("/customer")
 public class CustomerController {
-	
+
 	private static Logger logger = LogManager.getLogger(CustomerDetailsModel.class);
 
 	@Autowired
@@ -35,30 +35,28 @@ public class CustomerController {
 
 	@Autowired
 	ModelMapper modelMapper;
-	
+
 	@Autowired
 	CustomerDetailsRepository customerDetailsRepository;
 
 	@PostMapping("/addCustomer")
 	public String addCustomer(@RequestBody CustomerDetailsModel details) {
-		
+
 		customerInterface.addCustomer(details);
 		return "customer added";
 	}
-	
 
 	@PutMapping("/updateCustomer")
 	public String updateCustomer(@RequestBody CustomerDetailsDto details) {
 
 		CustomerDetailsModel customerEntity = modelMapper.map(details, CustomerDetailsModel.class);
 		customerInterface.addCustomer(customerEntity);
-		
+
 		return "customer details updated";
 	}
-	
+
 	@GetMapping("/getAllCustomers")
-	public List<CustomerDetailsModel> findall()
-	{
+	public List<CustomerDetailsModel> findall() {
 		return customerDetailsRepository.findAll();
 	}
 
