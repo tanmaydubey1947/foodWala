@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.restaurant.foodWala.vo.CustomerDetailsModel;
+
 @RestController
 @RequestMapping("/triggerEmail")
 public class EmailTriggerController {
@@ -14,10 +16,10 @@ public class EmailTriggerController {
 	private EmailConfigurationInterface emailService;
 
 	@PostMapping("/sendMail")
-	public String sendMail(@RequestBody EmailConfigurationModel details) {
-		String status = emailService.sendSimpleMail(details);
+	public String sendMail(@RequestBody CustomerDetailsModel details) {
+		emailService.sendMailAccountCreationSuccess(details);
 
-		return status;
+		return "Mail Sent Successfully";
 	}
 
 }

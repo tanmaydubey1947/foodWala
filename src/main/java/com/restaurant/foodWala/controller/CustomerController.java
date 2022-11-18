@@ -17,6 +17,7 @@ import com.restaurant.foodWala.repository.CustomerDetailsRepository;
 import com.restaurant.foodWala.repository.MenuItemsRepository;
 import com.restaurant.foodWala.service.CustomerInterface;
 import com.restaurant.foodWala.vo.CustomerDetailsModel;
+import com.restaurant.foodWala.vo.OTPVerification;
 
 @SuppressWarnings("unused")
 @RestController
@@ -38,9 +39,16 @@ public class CustomerController {
 	CustomerDetailsRepository customerDetailsRepository;
 
 	@PostMapping("/addCustomer")
-	public String addCustomer(@RequestBody CustomerDetailsModel details) {
+	public String addCustomer(@RequestBody OTPVerification details) {
 
-		customerInterface.addCustomer(details);
+		customerInterface.customerEnrollment(details);
+		return "Mail Sent Successfully. Now verify the account...";
+	}
+	
+	@PostMapping("/customerVerification")
+	public String customerVerification(@RequestBody OTPVerification details) {
+
+		customerInterface.customerOTPVerification(details);
 		return "customer added";
 	}
 

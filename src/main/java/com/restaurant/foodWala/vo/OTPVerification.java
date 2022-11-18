@@ -2,19 +2,19 @@ package com.restaurant.foodWala.vo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table
-public class CustomerDetailsModel {
+public class OTPVerification {
 
 	@Id
 	@Column
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public int customerId;
+	private String customerEmailId;
+
+	@Column
+	private long otp;
 
 	@Column
 	public String customerFirstName;
@@ -23,32 +23,37 @@ public class CustomerDetailsModel {
 	public String customerLastName;
 
 	@Column
-	public String customerEmailId;
-
-	@Column
 	public long customerMobileNumber;
-	
-	public CustomerDetailsModel() {
+
+	public OTPVerification() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public CustomerDetailsModel(int customerId, String customerFirstName, String customerLastName,
-			String customerEmailId, long customerMobileNumber) {
+	public OTPVerification(String customerEmailId, long otp, String customerFirstName, String customerLastName,
+			long customerMobileNumber) {
 		super();
-		this.customerId = customerId;
+		this.customerEmailId = customerEmailId;
+		this.otp = otp;
 		this.customerFirstName = customerFirstName;
 		this.customerLastName = customerLastName;
-		this.customerEmailId = customerEmailId;
 		this.customerMobileNumber = customerMobileNumber;
 	}
 
-	public int getCustomerId() {
-		return customerId;
+	public String getCustomerEmailId() {
+		return customerEmailId;
 	}
 
-	public void setCustomerId(int customerId) {
-		this.customerId = customerId;
+	public void setCustomerEmailId(String customerEmailId) {
+		this.customerEmailId = customerEmailId;
+	}
+
+	public long getOtp() {
+		return otp;
+	}
+
+	public void setOtp(long otp) {
+		this.otp = otp;
 	}
 
 	public String getCustomerFirstName() {
@@ -65,14 +70,6 @@ public class CustomerDetailsModel {
 
 	public void setCustomerLastName(String customerLastName) {
 		this.customerLastName = customerLastName;
-	}
-
-	public String getCustomerEmailId() {
-		return customerEmailId;
-	}
-
-	public void setCustomerEmailId(String customerEmailId) {
-		this.customerEmailId = customerEmailId;
 	}
 
 	public long getCustomerMobileNumber() {
